@@ -27,12 +27,12 @@ module Dir::Functions
 
   attach_pfunc :SHGetFolderPathW, [:hwnd, :int, :handle, :dword, :buffer_out], :dword
   attach_pfunc :SHGetFolderLocation, [:hwnd, :int, :handle, :dword, :ptr], :dword
-  attach_pfunc :SHGetFileInfo, [:dword, :dword, :ptr, :uint, :uint], :dword
+#NANO  attach_pfunc :SHGetFileInfo, [:dword, :dword, :ptr, :uint, :uint], :dword
 
   ffi_lib :shlwapi
   ffi_convention :stdcall
 
-  attach_pfunc :PathIsDirectoryEmptyW, [:buffer_in], :bool
+#NANO  attach_pfunc :PathIsDirectoryEmptyW, [:buffer_in], :bool
 
   ffi_lib :kernel32
   ffi_convention :stdcall

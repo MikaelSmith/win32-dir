@@ -86,10 +86,10 @@ class Dir
       flags = SHGFI_DISPLAYNAME | SHGFI_PIDL
 
       if SHGetFolderLocation(0, value, 0, 0, ptr) == 0
-        if SHGetFileInfo(ptr.read_long, 0, info, info.size, flags) != 0
-          path = info[:szDisplayName].to_s
-          path.force_encoding(Encoding.default_external)
-        end
+#NANO        if SHGetFileInfo(ptr.read_long, 0, info, info.size, flags) != 0
+#NANO          path = info[:szDisplayName].to_s
+#NANO          path.force_encoding(Encoding.default_external)
+#NANO        end
       end
     end
 
@@ -370,7 +370,8 @@ class Dir
   # a directory, or contains any files other than '.' or '..'.
   #
   def self.empty?(path)
-    PathIsDirectoryEmptyW("#{path}".wincode)
+    false
+#NANO    PathIsDirectoryEmptyW("#{path}".wincode)
   end
 
   # Returns whether or not +path+ is a junction.
